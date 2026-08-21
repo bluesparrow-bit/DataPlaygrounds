@@ -1,6 +1,2 @@
-Include/*
 Data_Wrangling/data/*
-Lib/*
-Scripts/*
-share/*
-pyvenv.cfg
+.venv/*
