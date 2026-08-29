@@ -1,2 +1,4 @@
-Data_Wrangling/data/*
 .venv/*
+.vscode/*
+Data_Wrangling/data/*
+DEPI-SQL-Laps/DEPI-SQL-Laps.sqlproj
