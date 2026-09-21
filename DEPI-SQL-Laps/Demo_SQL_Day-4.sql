@@ -91,14 +91,14 @@ where Salary < (Select Avg(Salary)
 select Dep_Name
 from   Department
 where  Dep_ID in (select  Dep_ID
-				 from Employee)
+				from Employee)
 
 --OR
 select  Dep_Name
 from Department
 where Dep_ID in (select distinct Dep_ID
-				 from Employee
-				 where Dep_ID is not null)
+				from Employee
+				where Dep_ID is not null)
 --3)Multirow Subquery with Multiple Columns (Joins)
 SELECT *
 FROM Employee e INNER JOIN Department d

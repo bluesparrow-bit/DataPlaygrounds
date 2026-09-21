@@ -1,0 +1,251 @@
+order_id,order_date,customer_id,city,product,category,status,quantity,unit_price,discount_pct
+100001,,CUST00001,,Laptop,Electronics,Completed,1,25650.0,0
+100002,2025-08-14,,Giza,Smartphone,Electronics,Completed,2,13195.0,5
+100003,2025-03-27,CUST00003,Alexandria,Wireless Mouse,Accessories,Completed,0,414.0,10
+100004,2025-10-12,CUST00004,Mansoura,Keyboard,Accessories,Completed,4,-25.0,15
+100005,2025-05-25,CUST00005,Tanta,Office Chair,Furniture,Completed,5,4888.0,150
+100006,,CUST00006,Aswan,Desk,Furniture,Completed,6,7030.0,0
+100007,2025-07-23,,Luxor,Headphones,Electronics,Completed,7,1728.0,5
+100008,2025-02-08,CUST00008,Port Said,Monitor,Electronics,Completed,0,8924.0,10
+100009,2025-09-21,CUST00009,Cairo,Printer,Office Equipment,Completed,9,-25.0,15
+100010,2025-04-06,CUST00010,Giza,Notebook Pack,Stationery,Completed,10,237.6,150
+100011,,CUST00011,Alexandria,Laptop,Electronics,Completed,11,28500.0,0
+100012,2025-06-04,,Mansoura,Smartphone,Electronics,Completed,12,14645.0,5
+100013,2025-01-17,CUST00013,Tanta,Wireless Mouse,Accessories,Completed,0,459.0,10
+100014,2025-08-02,CUST00014,Aswan,Keyboard,Accessories,Completed,2,-25.0,15
+100015,2025-03-15,CUST00015,Luxor,Office Chair,Furniture,Completed,3,5408.0,150
+100016,,CUST00016,Port Said,Desk,Furniture,Completed,4,7770.0,0
+100017,2025-05-13,,Cairo,Headphones,Electronics,Completed,5,1908.0,5
+100018,2025-12-26,CUST00018,Giza,Monitor,Electronics,Completed,0,9844.0,10
+100019,2025-07-11,CUST00019,Alexandria,Printer,Office Equipment,Completed,7,-25.0,15
+100020,2025-02-24,CUST00020,Mansoura,Notebook Pack,Stationery,Completed,8,261.6,150
+100021,,CUST00021,Tanta,Laptop,Electronics,Completed,9,31350.0,0
+100022,2025-04-22,,Aswan,Smartphone,Electronics,Completed,10,13050.0,5
+100023,2025-11-07,CUST00023,Luxor,Wireless Mouse,Accessories,Completed,0,409.5,10
+100024,2025-06-20,CUST00024,Port Said,Keyboard,Accessories,Completed,12,-25.0,15
+100025,2025-01-05,CUST00025,Cairo,Office Chair,Furniture,Completed,1,4836.0,150
+100026,,CUST00026,Giza,Desk,Furniture,Completed,2,6956.0,0
+100027,2025-03-03,,Alexandria,Headphones,Electronics,Completed,3,1710.0,5
+100028,2025-10-16,CUST00028,Mansoura,Monitor,Electronics,Completed,0,8832.0,10
+100029,2025-05-01,CUST00029,Tanta,Printer,Office Equipment,Completed,5,-25.0,15
+100030,2025-12-14,CUST00030,Aswan,Notebook Pack,Stationery,Completed,6,235.2,150
+100031,,CUST00031,Luxor,Laptop,Electronics,Completed,7,28215.0,0
+100032,2025-02-12,,Port Said,Smartphone,Electronics,Completed,8,14500.0,5
+100033,2025-09-25,CUST00033,Cairo,Wireless Mouse,Accessories,Completed,0,454.5,10
+100034,2025-04-10,CUST00034,Giza,Keyboard,Accessories,Completed,10,-25.0,15
+100035,2025-11-23,CUST00035,Alexandria,Office Chair,Furniture,Completed,11,5356.0,150
+100036,,CUST00036,Mansoura,Desk,Furniture,Completed,12,7696.0,0
+100037,2025-01-21,,Tanta,Headphones,Electronics,Completed,1,1890.0,5
+100038,2025-08-06,CUST00038,Aswan,Monitor,Electronics,Completed,0,9752.0,10
+100039,2025-03-19,CUST00039,Luxor,Printer,Office Equipment,Completed,3,-25.0,15
+100040,2025-10-04,CUST00040,Port Said,Notebook Pack,Stationery,Completed,4,259.2,150
+100041,,CUST00041,Cairo,Laptop,Electronics,Completed,5,31065.0,0
+100042,2025-12-02,,Giza,Smartphone,Electronics,Completed,6,15950.0,5
+100043,2025-07-15,CUST00043,Alexandria,Wireless Mouse,Accessories,Completed,0,405.0,10
+100044,2025-02-28,CUST00044,Mansoura,Keyboard,Accessories,Completed,8,-25.0,15
+100045,2025-09-13,CUST00045,Tanta,Office Chair,Furniture,Completed,9,4784.0,150
+100046,,CUST00046,Aswan,Desk,Furniture,Completed,10,6882.0,0
+100047,2025-11-11,,Luxor,Headphones,Electronics,Completed,11,1692.0,5
+100048,2025-06-24,CUST00048,Port Said,Monitor,Electronics,Completed,0,8740.0,10
+100049,2025-01-09,CUST00049,Cairo,Printer,Office Equipment,Completed,1,-25.0,15
+100050,2025-08-22,CUST00050,Giza,Notebook Pack,Stationery,Completed,2,232.8,150
+100051,,CUST00051,Alexandria,Laptop,Electronics,Completed,3,27930.0,0
+100052,2025-10-20,,Mansoura,Smartphone,Electronics,Completed,4,14355.0,5
+100053,2025-05-05,CUST00053,Tanta,Wireless Mouse,Accessories,Completed,0,450.0,10
+100054,2025-12-18,CUST00054,Aswan,Keyboard,Accessories,Completed,6,-25.0,15
+100055,2025-07-03,CUST00055,Luxor,Office Chair,Furniture,Completed,7,5304.0,150
+100056,,CUST00056,Port Said,Desk,Furniture,Completed,8,7622.0,0
+100057,2025-09-01,,Cairo,Headphones,Electronics,Completed,9,1872.0,5
+100058,2025-04-14,CUST00058,Giza,Monitor,Electronics,Completed,0,9660.0,10
+100059,2025-11-27,CUST00059,Alexandria,Printer,Office Equipment,Completed,11,-25.0,15
+100060,2025-06-12,CUST00060,Mansoura,Notebook Pack,Stationery,Completed,12,256.8,150
+100061,,CUST00061,Tanta,Laptop,Electronics,Completed,1,30780.0,0
+100062,2025-08-10,,Aswan,Smartphone,Electronics,Completed,2,15805.0,5
+100063,2025-03-23,CUST00063,Luxor,Wireless Mouse,Accessories,Completed,0,495.0,10
+100064,2025-10-08,CUST00064,Port Said,Keyboard,Accessories,Completed,4,-25.0,15
+100065,2025-05-21,CUST00065,Cairo,Office Chair,Furniture,Completed,5,4732.0,150
+100066,,CUST00066,Giza,Desk,Furniture,Completed,6,6808.0,0
+100067,2025-07-19,,Alexandria,Headphones,Electronics,Completed,7,1674.0,5
+100068,2025-02-04,CUST00068,Mansoura,Monitor,Electronics,Completed,0,8648.0,10
+100069,2025-09-17,CUST00069,Tanta,Printer,Office Equipment,Completed,9,-25.0,15
+100070,2025-04-02,CUST00070,Aswan,Notebook Pack,Stationery,Completed,10,230.4,150
+100071,,CUST00071,Luxor,Laptop,Electronics,Completed,11,27645.0,0
+100072,2025-06-28,,Port Said,Smartphone,Electronics,Completed,12,14210.0,5
+100073,2025-01-13,CUST00073,Cairo,Wireless Mouse,Accessories,Completed,0,445.5,10
+100074,2025-08-26,CUST00074,Giza,Keyboard,Accessories,Completed,2,-25.0,15
+100075,2025-03-11,CUST00075,Alexandria,Office Chair,Furniture,Completed,3,5252.0,150
+100076,,CUST00076,Mansoura,Desk,Furniture,Completed,4,7548.0,0
+100077,2025-05-09,,Tanta,Headphones,Electronics,Completed,5,1854.0,5
+100078,2025-12-22,CUST00078,Aswan,Monitor,Electronics,Completed,0,9568.0,10
+100079,2025-07-07,CUST00079,Luxor,Printer,Office Equipment,Completed,7,-25.0,15
+100080,2025-02-20,CUST00080,Port Said,Notebook Pack,Stationery,Completed,8,254.4,150
+100081,,CUST00081,Cairo,Laptop,Electronics,Completed,9,30495.0,0
+100082,2025-04-18,,Giza,Smartphone,Electronics,Completed,10,15660.0,5
+100083,2025-11-03,CUST00083,Alexandria,Wireless Mouse,Accessories,Completed,0,490.5,10
+100084,2025-06-16,CUST00084,Mansoura,Keyboard,Accessories,Completed,12,-25.0,15
+100085,2025-01-01,CUST00085,Tanta,Office Chair,Furniture,Completed,1,4680.0,150
+100086,,CUST00086,Aswan,Desk,Furniture,Completed,2,6734.0,0
+100087,2025-03-27,,Luxor,Headphones,Electronics,Completed,3,1656.0,5
+100088,2025-10-12,CUST00088,Port Said,Monitor,Electronics,Completed,0,8556.0,10
+100089,2025-05-25,CUST00089,Cairo,Printer,Office Equipment,Completed,5,-25.0,15
+100090,2025-12-10,CUST00090,Giza,Notebook Pack,Stationery,Completed,6,228.0,150
+100091,,CUST00091,Alexandria,Laptop,Electronics,Completed,7,27360.0,0
+100092,2025-02-08,,Mansoura,Smartphone,Electronics,Completed,8,14065.0,5
+100093,2025-09-21,CUST00093,Tanta,Wireless Mouse,Accessories,Completed,0,441.0,10
+100094,2025-04-06,CUST00094,Aswan,Keyboard,Accessories,Completed,10,-25.0,15
+100095,2025-11-19,CUST00095,Luxor,Office Chair,Furniture,Completed,11,5200.0,150
+100096,,CUST00096,Port Said,Desk,Furniture,Completed,12,7474.0,0
+100097,2025-01-17,,Cairo,Headphones,Electronics,Completed,1,1836.0,5
+100098,2025-08-02,CUST00098,Unknown,Monitor,Electronics,Completed,0,9476.0,10
+100099,2025-03-15,CUST00099,Alexandria,Printer,Office Equipment,Completed,3,-25.0,15
+100100,2025-10-28,CUST00100,Mansoura,Notebook Pack,Stationery,Completed,4,252.0,150
+100101,,CUST00101,Tanta,Laptop,Electronics,Completed,5,30210.0,0
+100102,2025-12-26,,Aswan,Smartphone,Electronics,Completed,6,15515.0,5
+100103,2025-07-11,CUST00103,Luxor,Wireless Mouse,Accessories,Completed,0,486.0,10
+100104,2025-02-24,CUST00104,Port Said,Keyboard,Accessories,Completed,8,-25.0,15
+100105,2025-09-09,CUST00105,Cairo,Office Chair,Furniture,Completed,9,5720.0,150
+100106,,CUST00106,Giza,Desk,Furniture,Completed,10,6660.0,0
+100107,2025-11-07,,Alexandria,Headphones,Electronics,Completed,11,1638.0,5
+100108,2025-06-20,CUST00108,Mansoura,Monitor,Electronics,Completed,0,8464.0,10
+100109,2025-01-05,CUST00109,Tanta,Printer,Office Equipment,Completed,1,-25.0,15
+100110,2025-08-18,CUST00110,Aswan,Notebook Pack,Stationery,Completed,2,225.6,150
+100111,,CUST00111,Luxor,Laptop,Electronics,Completed,3,27075.0,0
+100112,2025-10-16,,Port Said,Smartphone,Electronics,Completed,4,13920.0,5
+100113,2025-05-01,CUST00113,Cairo,Wireless Mouse,Accessories,Completed,0,436.5,10
+100114,2025-12-14,CUST00114,Giza,Keyboard,Accessories,Completed,6,-25.0,15
+100115,2025-07-27,CUST00115,Alexandria,Office Chair,Furniture,Completed,7,5148.0,150
+100116,,CUST00116,Mansoura,Desk,Furniture,Completed,8,7400.0,0
+100117,2025-09-25,,Tanta,Headphones,Electronics,Completed,9,1818.0,5
+100118,2025-04-10,CUST00118,Aswan,Monitor,Electronics,Completed,0,9384.0,10
+100119,2025-11-23,CUST00119,Luxor,Printer,Office Equipment,Completed,11,-25.0,15
+100120,2025-06-08,CUST00120,Port Said,Notebook Pack,Stationery,Completed,12,249.6,150
+100121,,CUST00121,Cairo,Laptop,Electronics,Completed,1,29925.0,0
+100122,2025-08-06,,Giza,Smartphone,Electronics,Completed,2,15370.0,5
+100123,2025-03-19,CUST00123,Alexandria,Wireless Mouse,Accessories,Completed,0,481.5,10
+100124,2025-10-04,CUST00124,Mansoura,Keyboard,Accessories,Completed,4,-25.0,15
+100125,2025-05-17,CUST00125,Tanta,Office Chair,Furniture,Completed,5,5668.0,150
+100126,,CUST00126,Aswan,Desk,Furniture,Completed,6,8140.0,0
+100127,2025-07-15,,Luxor,Headphones,Electronics,Completed,7,1620.0,5
+100128,2025-02-28,CUST00128,Port Said,Monitor,Electronics,Completed,0,8372.0,10
+100129,2025-09-13,CUST00129,Cairo,Printer,Office Equipment,Completed,9,-25.0,15
+100130,2025-04-26,CUST00130,Giza,Notebook Pack,Stationery,Completed,10,223.2,150
+100131,,CUST00131,Alexandria,Laptop,Electronics,Completed,11,26790.0,0
+100132,2025-06-24,,Mansoura,Smartphone,Electronics,Completed,12,13775.0,5
+100133,2025-01-09,CUST00133,Tanta,Wireless Mouse,Accessories,Completed,0,432.0,10
+100134,2025-08-22,CUST00134,Aswan,Keyboard,Accessories,Completed,2,-25.0,15
+100135,2025-03-07,CUST00135,Luxor,Office Chair,Furniture,Completed,3,5096.0,150
+100136,,CUST00136,Port Said,Desk,Furniture,Completed,4,7326.0,0
+100137,2025-05-05,,Cairo,Headphones,Electronics,Completed,5,1800.0,5
+100138,2025-12-18,CUST00138,Giza,Monitor,Electronics,Completed,0,9292.0,10
+100139,2025-07-03,CUST00139,Alexandria,Printer,Office Equipment,Completed,7,-25.0,15
+100140,2025-02-16,CUST00140,Mansoura,Notebook Pack,Stationery,Completed,8,247.2,150
+100141,,CUST00141,Tanta,Laptop,Electronics,Completed,9,29640.0,0
+100142,2025-04-14,,Aswan,Smartphone,Electronics,Completed,10,15225.0,5
+100143,2025-11-27,CUST00143,Luxor,Wireless Mouse,Accessories,Completed,0,477.0,10
+100144,2025-06-12,CUST00144,Port Said,Keyboard,Accessories,Completed,12,-25.0,15
+100145,2025-01-25,CUST00145,Cairo,Office Chair,Furniture,Completed,1,5616.0,150
+100146,,CUST00146,Giza,Desk,Furniture,Completed,2,8066.0,0
+100147,2025-03-23,,Alexandria,Headphones,Electronics,Completed,3,1980.0,5
+100148,2025-10-08,CUST00148,Mansoura,Monitor,Electronics,Completed,0,8280.0,10
+100149,2025-05-21,CUST00149,Tanta,Printer,Office Equipment,Completed,5,-25.0,15
+100150,2025-12-06,CUST00150,Aswan,Notebook Pack,Stationery,Completed,6,220.8,150
+100151,,CUST00151,Luxor,Laptop,Electronics,Completed,7,26505.0,0
+100152,2025-02-04,,Port Said,Smartphone,Electronics,Completed,8,13630.0,5
+100153,2025-09-17,CUST00153,Cairo,Wireless Mouse,Accessories,Completed,0,427.5,10
+100154,2025-04-02,CUST00154,Giza,Keyboard,Accessories,Completed,10,-25.0,15
+100155,2025-11-15,CUST00155,Alexandria,Office Chair,Furniture,Completed,11,5044.0,150
+100156,,CUST00156,Mansoura,Desk,Furniture,Completed,12,7252.0,0
+100157,2025-01-13,,Tanta,Headphones,Electronics,Completed,1,1782.0,5
+100158,2025-08-26,CUST00158,Aswan,Monitor,Electronics,Completed,0,9200.0,10
+100159,2025-03-11,CUST00159,Luxor,Printer,Office Equipment,Completed,3,-25.0,15
+100160,2025-10-24,CUST00160,Port Said,Notebook Pack,Stationery,Completed,4,244.8,150
+100161,,CUST00161,Cairo,Laptop,Electronics,Completed,5,29355.0,0
+100162,2025-12-22,,Giza,Smartphone,Electronics,Completed,6,15080.0,5
+100163,2025-07-07,CUST00163,Alexandria,Wireless Mouse,Accessories,Completed,0,472.5,10
+100164,2025-02-20,CUST00164,Mansoura,Keyboard,Accessories,Completed,8,-25.0,15
+100165,2025-09-05,CUST00165,Tanta,Office Chair,Furniture,Completed,9,5564.0,150
+100166,,CUST00166,Aswan,Desk,Furniture,Completed,10,7992.0,0
+100167,2025-11-03,,Luxor,Headphones,Electronics,Completed,11,1962.0,5
+100168,2025-06-16,CUST00168,Port Said,Monitor,Electronics,Completed,0,10120.0,10
+100169,2025-01-01,CUST00169,Cairo,Printer,Office Equipment,Completed,1,-25.0,15
+100170,2025-08-14,CUST00170,Giza,Notebook Pack,Stationery,Completed,2,218.4,150
+100171,,CUST00171,Alexandria,Laptop,Electronics,Completed,3,26220.0,0
+100172,2025-10-12,,Mansoura,Smartphone,Electronics,Completed,4,13485.0,5
+100173,2025-05-25,CUST00173,Tanta,Wireless Mouse,Accessories,Completed,0,423.0,10
+100174,2025-12-10,CUST00174,Aswan,Keyboard,Accessories,Completed,6,-25.0,15
+100175,2025-07-23,CUST00175,Luxor,Office Chair,Furniture,Completed,7,4992.0,150
+100176,,CUST00176,Port Said,Desk,Furniture,Completed,8,7178.0,0
+100177,2025-09-21,,Cairo,Headphones,Electronics,Completed,9,1764.0,5
+100178,2025-04-06,CUST00178,Giza,Monitor,Electronics,Completed,0,9108.0,10
+100179,2025-11-19,CUST00179,Alexandria,Printer,Office Equipment,Completed,11,-25.0,15
+100180,2025-06-04,CUST00180,Mansoura,Notebook Pack,Stationery,Completed,12,242.4,150
+100181,,CUST00181,Tanta,Laptop,Electronics,Completed,1,29070.0,0
+100182,2025-08-02,,Aswan,Smartphone,Electronics,Completed,2,14935.0,5
+100183,2025-03-15,CUST00183,Luxor,Wireless Mouse,Accessories,Completed,0,468.0,10
+100184,2025-10-28,CUST00184,Port Said,Keyboard,Accessories,Completed,4,-25.0,15
+100185,2025-05-13,CUST00185,Cairo,Office Chair,Furniture,Completed,5,5512.0,150
+100186,,CUST00186,Giza,Desk,Furniture,Completed,6,7918.0,0
+100187,2025-07-11,,Alexandria,Headphones,Electronics,Completed,7,1944.0,5
+100188,2025-02-24,CUST00188,Mansoura,Monitor,Electronics,Completed,0,10028.0,10
+100189,2025-09-09,CUST00189,Tanta,Printer,Office Equipment,Completed,9,-25.0,15
+100190,2025-04-22,CUST00190,Aswan,Notebook Pack,Stationery,Completed,10,216.0,150
+100191,,CUST00191,Luxor,Laptop,Electronics,Completed,11,25935.0,0
+100192,2025-06-20,,Port Said,Smartphone,Electronics,Completed,12,13340.0,5
+100193,2025-01-05,CUST00193,Cairo,Wireless Mouse,Accessories,Completed,0,418.5,10
+100194,2025-08-18,CUST00194,Giza,Keyboard,Accessories,Completed,2,-25.0,15
+100195,2025-03-03,CUST00195,Unknown,Office Chair,Furniture,Completed,3,4940.0,150
+100196,,CUST00196,Mansoura,Desk,Furniture,Completed,4,7104.0,0
+100197,2025-05-01,,Tanta,Headphones,Electronics,Completed,5,1746.0,5
+100198,2025-12-14,CUST00198,Aswan,Monitor,Electronics,Completed,0,9016.0,10
+100199,2025-07-27,CUST00199,Luxor,Printer,Office Equipment,Completed,7,-25.0,15
+100200,2025-02-12,CUST00200,Port Said,Notebook Pack,Stationery,Completed,8,240.0,150
+100201,,CUST00201,Cairo,Laptop,Electronics,Completed,9,28785.0,0
+100202,2025-04-10,,Giza,Smartphone,Electronics,Completed,10,14790.0,5
+100203,2025-11-23,CUST00203,Alexandria,Wireless Mouse,Accessories,Completed,0,463.5,10
+100204,2025-06-08,CUST00204,Mansoura,Keyboard,Accessories,Completed,12,-25.0,15
+100205,2025-01-21,CUST00205,Tanta,Office Chair,Furniture,Completed,1,5460.0,150
+100206,,CUST00206,Aswan,Desk,Furniture,Completed,2,7844.0,0
+100207,2025-03-19,,Luxor,Headphones,Electronics,Completed,3,1926.0,5
+100208,2025-10-04,CUST00208,Port Said,Monitor,Electronics,Completed,0,9936.0,10
+100209,2025-05-17,CUST00209,Cairo,Printer,Office Equipment,Completed,5,-25.0,15
+100210,2025-12-02,CUST00210,Giza,Notebook Pack,Stationery,Completed,6,264.0,150
+100211,,CUST00211,Alexandria,Laptop,Electronics,Completed,7,25650.0,0
+100212,2025-02-28,,Mansoura,Smartphone,Electronics,Completed,8,13195.0,5
+100213,2025-09-13,CUST00213,Tanta,Wireless Mouse,Accessories,Completed,0,414.0,10
+100214,2025-04-26,CUST00214,Aswan,Keyboard,Accessories,Completed,10,-25.0,15
+100215,2025-11-11,CUST00215,Luxor,Office Chair,Furniture,Completed,11,4888.0,150
+100216,,CUST00216,Port Said,Desk,Furniture,Completed,12,7030.0,0
+100217,2025-01-09,,Cairo,Headphones,Electronics,Completed,1,1728.0,5
+100218,2025-08-22,CUST00218,Giza,Monitor,Electronics,Completed,0,8924.0,10
+100219,2025-03-07,CUST00219,Alexandria,Printer,Office Equipment,Completed,3,-25.0,15
+100220,2025-10-20,CUST00220,Mansoura,Notebook Pack,Stationery,Completed,4,237.6,150
+100221,,CUST00221,Tanta,Laptop,Electronics,Completed,5,28500.0,0
+100222,2025-12-18,,Aswan,Smartphone,Electronics,Completed,6,14645.0,5
+100223,2025-07-03,CUST00223,Luxor,Wireless Mouse,Accessories,Completed,0,459.0,10
+100224,2025-02-16,CUST00224,Port Said,Keyboard,Accessories,Completed,8,-25.0,15
+100225,2025-09-01,CUST00225,Cairo,Office Chair,Furniture,Completed,9,5408.0,150
+100226,,CUST00226,Giza,Desk,Furniture,Completed,10,7770.0,0
+100227,2025-11-27,,Alexandria,Headphones,Electronics,Completed,11,1908.0,5
+100228,2025-06-12,CUST00228,Mansoura,Monitor,Electronics,Completed,0,9844.0,10
+100229,2025-01-25,CUST00229,Tanta,Printer,Office Equipment,Completed,1,-25.0,15
+100230,2025-08-10,CUST00230,Aswan,Notebook Pack,Stationery,Completed,2,261.6,150
+100231,,CUST00231,Luxor,Laptop,Electronics,Completed,3,31350.0,0
+100232,2025-10-08,,Port Said,Smartphone,Electronics,Completed,4,13050.0,5
+100233,2025-05-21,CUST00233,Cairo,Wireless Mouse,Accessories,Completed,0,409.5,10
+100234,2025-12-06,CUST00234,Giza,Keyboard,Accessories,Completed,6,-25.0,15
+100235,2025-07-19,CUST00235,Alexandria,Office Chair,Furniture,Completed,7,4836.0,150
+100236,,CUST00236,Mansoura,Desk,Furniture,Completed,8,6956.0,0
+100237,2025-09-17,,Tanta,Headphones,Electronics,Completed,9,1710.0,5
+100238,2025-04-02,CUST00238,Aswan,Monitor,Electronics,Completed,0,8832.0,10
+100239,2025-11-15,CUST00239,Luxor,Printer,Office Equipment,Completed,11,-25.0,15
+100240,2025-06-28,CUST00240,Port Said,Notebook Pack,Stationery,Completed,12,235.2,150
+100241,,CUST00241,Cairo,Laptop,Electronics,Completed,1,28215.0,0
+100242,2025-08-26,,Giza,Smartphone,Electronics,Completed,2,14500.0,5
+100243,2025-03-11,CUST00243,Alexandria,Wireless Mouse,Accessories,Completed,0,454.5,10
+100244,2025-10-24,CUST00244,Mansoura,Keyboard,Accessories,Completed,4,-25.0,15
+100245,2025-05-09,CUST00245,Tanta,Office Chair,Furniture,Completed,5,5356.0,150
+100246,,CUST00246,Aswan,Desk,Furniture,Completed,6,7696.0,0
+100247,2025-07-07,,Luxor,Headphones,Electronics,Completed,7,1890.0,5
+100248,2025-02-20,CUST00248,Port Said,Monitor,Electronics,Completed,0,9752.0,10
+100249,2025-09-05,CUST00249,Cairo,Printer,Office Equipment,Completed,9,-25.0,15
+100250,2025-04-18,CUST00250,Giza,Notebook Pack,Stationery,Completed,10,259.2,150
