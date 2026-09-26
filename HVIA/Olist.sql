@@ -1,5 +1,9 @@
+CREATE DATABASE Olist
+
 USE Olist
 
+--Use master
+--Drop database Olist
 
 SELECT * FROM INFORMATION_SCHEMA.TABLES;
 
@@ -7,4 +11,4 @@ SELECT * FROM INFORMATION_SCHEMA.TABLES;
 SELECT * FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'olist_customers';
 
-SELECT * FROM [dbo].[olist_sellers]
+SELECT * FROM
