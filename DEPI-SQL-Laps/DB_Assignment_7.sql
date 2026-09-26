@@ -119,36 +119,104 @@ GO
 --7 Group the "Sales" table by "Prod_ID" ,"SalesName" using the "Rollup" operator.
 --(Display SalesName, Prod_Id , Sum(Qty)
 
-
+SELECT SalesName, Prod_Id , SUM(Qty) AS Total_Qty
+FROM Sales
+GROUP BY ROLLUP(Prod_ID, SalesName)
 
 --8 Group the "Sales" table by "Prod_ID" and "SalesName" using the "Cube" operator.
 --(Display Prod_ID,SalesName,SUM(Qty))
 
-
+SELECT SalesName, Prod_Id , SUM(Qty) AS Total_Qty
+FROM Sales
+GROUP BY CUBE(Prod_ID, SalesName)
 
 --9 Group the "Sales" table by "Prod_ID" and "SalesName" using the "Grouping Sets" operator.
 --(Display Prod_ID,SalesName,SUM(Qty))
 
-
+SELECT SalesName, Prod_Id , SUM(Qty) AS Total_Qty
+FROM Sales
+GROUP BY GROUPING SETS ((Prod_ID), (SalesName))
 
 --10 Retrieve pivoting data for employee’s quantities (Ahmed, Khalid, Ali)
 
+SELECT * FROM Sales PIVOT(SUM(Qty) FOR SalesName IN ([Ahmed],[Khalid],[Ali])) AS PIV
 
+SELECT * INTO Pivoting2 FROM Sales PIVOT(SUM(Qty) FOR SalesName IN ([Ahmed],[Khalid],[Ali])) AS PIV
+
+SELECT * FROM Pivoting2 UNPIVOT(Qty FOR SalesName IN ([Ahmed],[Khalid],[Ali])) AS UNPIV
+GO
 
 --Part 3: Trigger
---Ensure that you have an "AuditHistory" table (or create it) that contains the following columns: Old_Value Nvarchar(50), New_Value Nvarchar(50), UserName(250), and ChangedColumn Nvarchar(50).
+--Ensure that you have an "AuditHistory" table (or create it) that contains the following columns: UserName(250),Old_Value Nvarchar(50), New_Value Nvarchar(50),  and ChangedColumn Nvarchar(50).
 --11 Create a trigger that automatically updates the "Qty" column in the "Product" table when a new record is inserted into the "Sales" table.
 
-
+CREATE OR ALTER TRIGGER updat_qty_on_sales_insertion
+ON Sales
+AFTER INSERT
+AS
+    BEGIN
+        DECLARE @qty INT, @productid INT
+        SELECT @qty = Qty, @productid = Prod_ID FROM inserted
+        UPDATE Product 
+        SET Qty = @qty
+        WHERE Prod_ID = @productid
+    END
+GO
+INSERT INTO Sales
+VALUES (4, 'ahmed', 35)
+GO
 
 --12 Write a trigger that prevents insertion into the "Instructor" table.
 
-
+CREATE OR ALTER TRIGGER no_instructor_insertion
+ON Instructor
+INSTEAD OF INSERT
+AS
+    BEGIN
+        PRINT 'INSERTIONS INTO THE "Instructor" TABLE IS NOT ALLOWED'
+    END
+GO
+INSERT INTO Instructor (Ins_ID, FirstName, MiddleName, LastName, DateOfBirth, Address, Gender, Salary, HourRate)
+VALUES (1, 'Mohamed', 'Ibrahim', 'Elsayed', '1990-02-02', 'Alex', 'M', 5000.00, 1000.00)
+GO
+SELECT * FROM Instructor
+GO
 
 --13 Design a trigger that captures changes made to the "Price" column of the "Course" table during an update and saves the changes to the "AuditHistory" table.
 
+TRUNCATE TABLE AuditHistory
+GO
 
+CREATE OR ALTER TRIGGER course_price_change
+ON Course
+AFTER UPDATE
+AS
+    IF UPDATE(Price)
+    BEGIN
+        DECLARE @oldprice MONEY, @newprice MONEY
+        SELECT @oldprice = Price FROM DELETED
+        SELECT @newprice = Price FROM INSERTED
+        INSERT INTO AuditHistory
+        VALUES (SUSER_NAME(), @oldprice, @newprice, 'Price')
+    END
+GO
+
+UPDATE Course
+SET Price = 500
+WHERE Crs_ID = 1
+
+SELECT * FROM AuditHistory
 
 --14 Write a trigger that prevents any deletions from the "Department" table.
 
-
+GO
+CREATE OR ALTER TRIGGER no_department_deletion
+ON Department
+INSTEAD OF DELETE
+AS
+    BEGIN
+        PRINT 'DELETION FROM THE "Department" TABLE IS NOT ALLOWED'
+    END
+GO
+DELETE FROM Department
+WHERE Dep_ID = 2

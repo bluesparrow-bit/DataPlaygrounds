@@ -19,13 +19,13 @@
 
 --------------------* User Defined 
 use DEPI_System
-
+GO
 CREATE or ALTER PROC GetStudentData 
 AS
 	SELECT * FROM Student --- Or from View
 
 exec GetStudentData
-
+GO
 
 create or ALTER PROC GetStudentDataByAddress @StudentAddress NVARCHAR(50)
 AS
@@ -33,7 +33,7 @@ AS
 	WHERE Address = @StudentAddress
 
 exec GetStudentDataByAddress 'alex'
-
+GO
 
 CREATE or ALTER PROC InserInstructorData (@Id INT, @FirstName NVARCHAR(20),@MiddleName NVARCHAR(20),@LastName NVARCHAR(20))
 AS
@@ -43,7 +43,7 @@ select * from Instructor
 
 exec InserInstructorData 111,'ahmed','mohamed','from SP'
 
-
+GO
 CREATE or ALTER PROC InserInstructorData @Id INT, @FirstName NVARCHAR(20),@MiddleName NVARCHAR(20),@LastName NVARCHAR(20)
 AS
 	IF NOT EXISTS(SELECT * FROM Instructor WHERE Ins_ID = @Id)
@@ -56,7 +56,7 @@ exec InserInstructorData 111,'ahmed','mohamed','from SP'
 
 select * from Instructor
 
-
+GO
 ALTER PROC InserInstructorData @Id INT, @FirstName NVARCHAR(20),@MiddleName NVARCHAR(20),@LastName NVARCHAR(20)
 AS
 	BEGIN TRY
@@ -72,7 +72,7 @@ select * from Instructor
 
 ---Encyrpt
 SP_HELPTEXT GetStudentData
-
+GO
 ALTER PROC GetStudentData 
 WITH Encryption
 AS
@@ -82,7 +82,7 @@ SP_HELPTEXT GetStudentData
 
 GetStudentData
 
-
+GO
  ---Output
 CREATE PROC GetInstructorSalary @InstructorID INT ,@Salary Money Output,@FirstName NVARCHAR(50) Output
 AS
@@ -100,7 +100,7 @@ select * from Instructor
 
 select*from Instructor
 
-
+GO
  ---Dynamic Stored Proc
 CREATE PROC DynamicSelect (@ColumnName NVARCHAR(MAX),@TableName NVARCHAR(MAX),@WhereClause NVARCHAR(MAX))
 AS
@@ -128,7 +128,7 @@ exec DynamicSelect '*','Instructor','1=1'
 --Level	(Server , DB , Tables)
 
 --After Insert
-
+GO
 CREATE TRIGGER Insturctor_Select_trig
 On Instructor
 After Insert
@@ -145,7 +145,7 @@ Alter Table Instructor Disable Trigger Insturctor_Select_trig
 Alter Table Instructor Enable Trigger Insturctor_Select_trig
 
 Drop Trigger Insturctor_Select_trig
-
+GO
 --Trigger Prevent -ve Salary
 Create Trigger PreventNegativeSalary
 On Instructor
@@ -179,7 +179,7 @@ So, 16 is suitable here because inserting a negative salary is invalid user inpu
 10 — State
 State is a number from 0 to 255 that helps identify where the error originated.
 */
-
+GO
 --After Update
 Create Trigger instructorChanges
 On instructor
@@ -202,7 +202,7 @@ Old_Value Nvarchar(50),
 New_Value Nvarchar(50),
 UpdatedColumn Nvarchar(50)
 )
-
+GO
 create or Alter Trigger SalaryTrack
 On instructor
 After Update 
@@ -231,7 +231,7 @@ Where Ins_ID = 100
 Select * From AuditHistory
 
 --After Delete
-
+GO
 -- Trigger InsteadOf INSERT
 create or Alter TRIGGER InsteadOfInsertTrigger
 ON Student
@@ -249,7 +249,7 @@ SELECT * FROM Student
 
 SELECT * FROM AuditHistory
 
-
+GO
 -- Trigger InsteadOf UPDATE
 CREATE or alter TRIGGER InsteadOfUpdateTrigger
 ON Student
@@ -270,7 +270,7 @@ SELECT * FROM Student
 
 SELECT * FROM AuditHistory
 
-
+GO
 -- Trigger InsteadOf DELETE
 CREATE or alter TRIGGER InsteadOfDeleteTrigger
 ON Student
