@@ -74,7 +74,7 @@ db.movies.find({year:{$gte:2021}});
 
 //4. Find movies with a rating of at least 8.0 or genre Comedy.
 
-db.movies.find({$or:[{rating:{$gte:2021}},{genre:'Comedy'}]});
+db.movies.find({$or:[{rating:{$gte:8}},{genre:'Comedy'}]});
 
 //5. Find all movies featuring Lina Adel in the actors array.
 
@@ -92,11 +92,7 @@ db.movies.find({}, {title:1, rating:1, _id:0}).sort({rating:-1});
 
 //8. Sort by year ascending, then title ascending. Show only the third and fourth results.
 
-db.movies.find({}).sort({year:-1});
-
-db.movies.find({}).sort({title:-1});
-
-db.movies.find({}).sort({title:-1}).skip(2).limit(2);
+db.movies.find({}).sort({year:1, title:1}).skip(2).limit(2);
 
 //9. Count movies whose available value is true.
 
@@ -152,7 +148,7 @@ db.movies.updateMany({genre:'Comedy'}, {$inc:{rating:0.2}});
 
 //14. Rename the city field to filmingCity only for The Last Lighthouse.
 
-db.movies.updateOne({title:'The Last Lighthouse'}, {$set:{city:'filmingCity'}});
+db.movies.updateOne({title:'The Last Lighthouse'}, {$rename:{city:'filmingCity'}});
 
 //15. Remove the duration field from Quiet Streets using $unset.
 
@@ -175,7 +171,7 @@ db.movies.deleteOne({_id:15})
 
 //18. Delete all movies released before 2017 using deleteMany().
 
-db.deleteMany({year:{lt:2017}})
+db.movies.deleteMany({year:{lt:2017}})
 
 //19. Show how many documents remain after both deletes.
 
@@ -200,7 +196,7 @@ db.movies.aggregate([
 
 db.movies.aggregate([
     {$group: {_id: "$genre", AverageRating: {$avg: "$rating"}}},
-    {$sort:{AverageRating:1}}
+    {$sort:{AverageRating: -1}}
 ])
 
 //E. Indexes and cleanup
