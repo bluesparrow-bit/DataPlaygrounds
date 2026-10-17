@@ -1,5 +1,5 @@
 .venv/*
 .vscode/*
 Data_Wrangling/data/*
-DEPI-SQL-Laps/DEPI-SQL-Laps.sqlproj
-Baraa-SQL/*
+DEPI/2-SQL-Laps/DEPI-SQL-Laps.sqlproj
+HVIA/Task 2/data/*

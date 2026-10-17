@@ -1,0 +1,44 @@
+1-Create a folder for Airflow
+	- mkdir E:\01-DEPI\NewAirFlow
+	- cd E:\01-DEPI\NewAirFlow
+2-Download the official Docker Compose file
+	- curl.exe -LfO https://airflow.apache.org/docs/apache-airflow/3.3.2/docker-compose.yaml
+3-Create the folders and configuration
+	- mkdir dags, logs, plugins, config
+	- Set-Content -Path .env -Value "AIRFLOW_UID=50000" -Encoding ascii
+4-Initialize Airflow
+	- docker compose up airflow-init
+5-Start Airflow in the background
+	- docker compose up -d
+6-Check the containers
+	- docker ps
+7-Open Airflow
+	- http://localhost:8080
+	- Username: airflow
+	- Password: airflow
+	
+In yaml file .yaml:
+	- x-airflow-common
+		- AIRFLOW__CORE__LOAD_EXAMPLES set it to false
+	-Change Dags Path:
+		-From ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags TO E:/01-DEPI/PythonWorkSpace/Labs:/opt/airflow/dags
+	
+In Config File .cfg:
+	- AIRFLOW__DAG_PROCESSOR__REFRESH_INTERVAL set it to 10
+	- AIRFLOW__DAG_PROCESSOR__MIN_FILE_PROCESS_INTERVAL set it to 10	
+
+In .env
+	- _PIP_ADDITIONAL_REQUIREMENTS=apache-airflow-providers-microsoft-mssql
+
+in PythonWorkSpace:
+	- python -m pip install apache-airflow
+
+# Stop Airflow
+docker compose stop
+
+# Start Airflow again
+docker compose start
+
+# View logs if something fails
+docker compose logs --tail 100
+
