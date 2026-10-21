@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.relational="http:///orgomg/cwm/resource/relational.ecore">
+  <TalendMetadata:DatabaseConnection xmi:id="_xcei8M2HEfGICP6lNjWVkw" name="MSSQLINPUT" id="_fTyfQM2HEfGICP6lNjWVkw" label="MSSQLINPUT" dataPackage="_TZyV8M2IEfGICP6lNjWVkw" DatabaseType="Microsoft SQL Server" DriverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver" URL="jdbc:sqlserver://localhost:1433;DatabaseName=HotelNormalizedSchema;" dbVersionString="MSSQL_PROP" Port="1433" Username="auto_admin" Password="enc:system.encryption.key.v1:Y5wtDYgjLYjabMwyFvXBP2WlEtjx7yeJ4H2DX0EpHbirdb0sj/aZ1EjiaA==" ServerName="localhost" DatasourceName="" FileFieldName="" SID="HotelNormalizedSchema" SqlSynthax="" StringQuote="" NullChar="" DbmsId="id_MSSQL" ProductId="SQL_SERVER" AdditionalParams="" StandardSQL="true" SQLMode="false" UiSchema="dbo">
+    <taggedValue xmi:id="_xcei8c2HEfGICP6lNjWVkw" tag="Is Conn Need Reload" value="true"/>
+    <taggedValue xmi:id="_xc0hMM2HEfGICP6lNjWVkw" tag="package filter" value=""/>
+    <taggedValue xmi:id="_xc4LkM2HEfGICP6lNjWVkw" tag="Status" value=""/>
+    <taggedValue xmi:id="_xc4Lkc2HEfGICP6lNjWVkw" tag="Version" value="0.1"/>
+    <taggedValue xmi:id="_xc4Lks2HEfGICP6lNjWVkw" tag="Purpose" value=""/>
+    <taggedValue xmi:id="_xc4Lk82HEfGICP6lNjWVkw" tag="Description" value=""/>
+    <taggedValue xmi:id="_xc4LlM2HEfGICP6lNjWVkw" tag="Author" value=""/>
+    <taggedValue xmi:id="_xc4Llc2HEfGICP6lNjWVkw" tag="otherParameter"/>
+    <taggedValue xmi:id="_xd8ikM2HEfGICP6lNjWVkw" tag="DB ProductName" value="Microsoft SQL Server"/>
+    <taggedValue xmi:id="_xd8ikc2HEfGICP6lNjWVkw" tag="DB ProductVersion" value="17.00.1000"/>
+    <taggedValue xmi:id="_xd8iks2HEfGICP6lNjWVkw" tag="DB IdentifierQuoteString" value="&quot;"/>
+    <parameters xmi:id="_xcei8s2HEfGICP6lNjWVkw" key="CONN_PARA_KEY_USERNAME" value="auto_admin"/>
+    <parameters xmi:id="_JqTY4M2IEfGICP6lNjWVkw" key="CONN_PARA_KEY_MAPRDB_TABLE_NS_MAPPING" value=""/>
+  </TalendMetadata:DatabaseConnection>
+  <orgomg.cwm.resource.relational:Catalog xmi:id="_TZyV8M2IEfGICP6lNjWVkw" name="HotelNormalizedSchema" dataManager="_xcei8M2HEfGICP6lNjWVkw">
+    <ownedElement xsi:type="orgomg.cwm.resource.relational:Schema" xmi:id="_TZyV8c2IEfGICP6lNjWVkw" name="dbo"/>
+  </orgomg.cwm.resource.relational:Catalog>
+</xmi:XMI>

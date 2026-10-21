@@ -50,7 +50,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:0feweqeVUpUf1y8wIn0AENVtG8BCopZD0wRjYHGI" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:Sh5hOFD7X46pJiZgNhUiPP+fZ82H58IzMoBFVuKr" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -85,7 +85,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:9irlL01ezD0Cu05aClcf054xPw30rlsizeS3RZMb" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:8JF5pFi/QKRwxRi/n0VVfZZM4tmm9O3GzEua+ZU/" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -125,7 +125,7 @@
     <elementParameter field="TEXT" name="DB_SCHEMA" value="context.__DB_SCHEMA__"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;HotelNormalizedSchema&quot;"/>
     <elementParameter field="TEXT" name="USER" value="context.__USER__"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:naiAud/bohJRO8RJglIyyJioGvwJCxadzad6n6biXZ8VjmYDHSyDvQMXMdw="/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:hiK1t4e1a8jL1PA/x0YUAxhg1LFkROGSpGLnamBNmSBy3SkeoygoBMnG0IA="/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;hotels&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
@@ -170,7 +170,7 @@
     <elementParameter field="TEXT" name="DBNAME" value="&quot;HotelBookingsDWH&quot;"/>
     <elementParameter field="TEXT" name="TYPE" value="MSSQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="context.__USER__"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:Z4Vu3fHzoGIWfpc4hv9eF00N+iMxUI9Qcofxw9YHWpA2pCHLg/btW6486Nc="/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:HqjOEICjeqWO1UoiWNz9zjlW/lVAlaKmijgDFdb5HUH0lyrZPu1ej3WgN58="/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;dim_hotel&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
     <elementParameter field="CHECK" name="IDENTITY_INSERT" value="false"/>

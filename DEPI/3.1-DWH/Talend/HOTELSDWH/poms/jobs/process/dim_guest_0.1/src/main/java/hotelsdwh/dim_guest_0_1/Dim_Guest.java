@@ -365,6 +365,16 @@ public class Dim_Guest implements TalendJob {
 		tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tMap_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tDBOutput_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -383,7 +393,7 @@ public class Dim_Guest implements TalendJob {
 
 	}
 
-	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+	public static class outStruct implements routines.system.IPersistableRow<outStruct> {
 		final static byte[] commonByteArrayLock_HOTELSDWH_Dim_Guest = new byte[0];
 		static byte[] commonByteArray_HOTELSDWH_Dim_Guest = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -439,7 +449,7 @@ public class Dim_Guest implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final row1Struct other = (row1Struct) obj;
+			final outStruct other = (outStruct) obj;
 
 			if (this.guest_id == null) {
 				if (other.guest_id != null)
@@ -452,7 +462,7 @@ public class Dim_Guest implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(row1Struct other) {
+		public void copyDataTo(outStruct other) {
 
 			other.guest_id = this.guest_id;
 			other.guest_name = this.guest_name;
@@ -461,10 +471,292 @@ public class Dim_Guest implements TalendJob {
 
 		}
 
-		public void copyKeysDataTo(row1Struct other) {
+		public void copyKeysDataTo(outStruct other) {
 
 			other.guest_id = this.guest_id;
 
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_HOTELSDWH_Dim_Guest.length) {
+					if (length < 1024 && commonByteArray_HOTELSDWH_Dim_Guest.length == 0) {
+						commonByteArray_HOTELSDWH_Dim_Guest = new byte[1024];
+					} else {
+						commonByteArray_HOTELSDWH_Dim_Guest = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_HOTELSDWH_Dim_Guest, 0, length);
+				strReturn = new String(commonByteArray_HOTELSDWH_Dim_Guest, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_HOTELSDWH_Dim_Guest.length) {
+					if (length < 1024 && commonByteArray_HOTELSDWH_Dim_Guest.length == 0) {
+						commonByteArray_HOTELSDWH_Dim_Guest = new byte[1024];
+					} else {
+						commonByteArray_HOTELSDWH_Dim_Guest = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_HOTELSDWH_Dim_Guest, 0, length);
+				strReturn = new String(commonByteArray_HOTELSDWH_Dim_Guest, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_HOTELSDWH_Dim_Guest) {
+
+				try {
+
+					int length = 0;
+
+					this.guest_id = readInteger(dis);
+
+					this.guest_name = readString(dis);
+
+					this.country = readString(dis);
+
+					this.loyalty_level = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_HOTELSDWH_Dim_Guest) {
+
+				try {
+
+					int length = 0;
+
+					this.guest_id = readInteger(dis);
+
+					this.guest_name = readString(dis);
+
+					this.country = readString(dis);
+
+					this.loyalty_level = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.guest_id, dos);
+
+				// String
+
+				writeString(this.guest_name, dos);
+
+				// String
+
+				writeString(this.country, dos);
+
+				// String
+
+				writeString(this.loyalty_level, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.guest_id, dos);
+
+				// String
+
+				writeString(this.guest_name, dos);
+
+				// String
+
+				writeString(this.country, dos);
+
+				// String
+
+				writeString(this.loyalty_level, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("guest_id=" + String.valueOf(guest_id));
+			sb.append(",guest_name=" + guest_name);
+			sb.append(",country=" + country);
+			sb.append(",loyalty_level=" + loyalty_level);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(outStruct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.guest_id, other.guest_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+		final static byte[] commonByteArrayLock_HOTELSDWH_Dim_Guest = new byte[0];
+		static byte[] commonByteArray_HOTELSDWH_Dim_Guest = new byte[0];
+
+		public Integer guest_id;
+
+		public Integer getGuest_id() {
+			return this.guest_id;
+		}
+
+		public String guest_name;
+
+		public String getGuest_name() {
+			return this.guest_name;
+		}
+
+		public String country;
+
+		public String getCountry() {
+			return this.country;
+		}
+
+		public String loyalty_level;
+
+		public String getLoyalty_level() {
+			return this.loyalty_level;
 		}
 
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
@@ -690,11 +982,6 @@ public class Dim_Guest implements TalendJob {
 
 			int returnValue = -1;
 
-			returnValue = checkNullsAndCompare(this.guest_id, other.guest_id);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
 			return returnValue;
 		}
 
@@ -742,6 +1029,7 @@ public class Dim_Guest implements TalendJob {
 				globalResumeTicket = true;
 
 				row1Struct row1 = new row1Struct();
+				outStruct out = new outStruct();
 
 				/**
 				 * [tDBOutput_1 begin ] start
@@ -753,7 +1041,7 @@ public class Dim_Guest implements TalendJob {
 				currentComponent = "tDBOutput_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "out");
 				}
 
 				int tos_count_tDBOutput_1 = 0;
@@ -831,6 +1119,41 @@ public class Dim_Guest implements TalendJob {
 
 				/**
 				 * [tDBOutput_1 begin ] stop
+				 */
+
+				/**
+				 * [tMap_1 begin ] start
+				 */
+
+				ok_Hash.put("tMap_1", false);
+				start_Hash.put("tMap_1", System.currentTimeMillis());
+
+				currentComponent = "tMap_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
+				}
+
+				int tos_count_tMap_1 = 0;
+
+// ###############################
+// # Lookup's keys initialization
+// ###############################        
+
+// ###############################
+// # Vars initialization
+				class Var__tMap_1__Struct {
+				}
+				Var__tMap_1__Struct Var__tMap_1 = new Var__tMap_1__Struct();
+// ###############################
+
+// ###############################
+// # Outputs initialization
+				outStruct out_tmp = new outStruct();
+// ###############################
+
+				/**
+				 * [tMap_1 begin ] stop
 				 */
 
 				/**
@@ -978,10 +1301,10 @@ public class Dim_Guest implements TalendJob {
 						 */
 
 						/**
-						 * [tDBOutput_1 main ] start
+						 * [tMap_1 main ] start
 						 */
 
-						currentComponent = "tDBOutput_1";
+						currentComponent = "tMap_1";
 
 						if (execStat) {
 							runStat.updateStatOnConnection(iterateId, 1, 1
@@ -991,142 +1314,218 @@ public class Dim_Guest implements TalendJob {
 							);
 						}
 
-						whetherReject_tDBOutput_1 = false;
-						if (row1.guest_id == null) {
-							pstmt_tDBOutput_1.setNull(1, java.sql.Types.INTEGER);
-						} else {
-							pstmt_tDBOutput_1.setInt(1, row1.guest_id);
-						}
+						boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
 
-						if (row1.guest_name == null) {
-							pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
-						} else {
-							pstmt_tDBOutput_1.setString(2, row1.guest_name);
-						}
+						// ###############################
+						// # Input tables (lookups)
+						boolean rejectedInnerJoin_tMap_1 = false;
+						boolean mainRowRejected_tMap_1 = false;
 
-						if (row1.country == null) {
-							pstmt_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
-						} else {
-							pstmt_tDBOutput_1.setString(3, row1.country);
-						}
+						// ###############################
+						{ // start of Var scope
 
-						if (row1.loyalty_level == null) {
-							pstmt_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
-						} else {
-							pstmt_tDBOutput_1.setString(4, row1.loyalty_level);
-						}
+							// ###############################
+							// # Vars tables
 
-						pstmt_tDBOutput_1.addBatch();
-						nb_line_tDBOutput_1++;
+							Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
+							// ###############################
+							// # Output tables
 
-						batchSizeCounter_tDBOutput_1++;
+							out = null;
 
-						////////// batch execute by batch size///////
-						class LimitBytesHelper_tDBOutput_1 {
-							public int limitBytePart1(int counter, java.sql.PreparedStatement pstmt_tDBOutput_1)
-									throws Exception {
-								try {
+// # Output table : 'out'
+							out_tmp.guest_id = row1.guest_id;
+							out_tmp.guest_name = StringHandling.UPCASE(row1.guest_name);
+							out_tmp.country = row1.country;
+							out_tmp.loyalty_level = row1.loyalty_level;
+							out = out_tmp;
+// ###############################
 
-									for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
-										if (countEach_tDBOutput_1 == -2 || countEach_tDBOutput_1 == -3) {
-											break;
-										}
-										counter += countEach_tDBOutput_1;
-									}
+						} // end of Var scope
 
-								} catch (java.sql.BatchUpdateException e) {
-									globalMap.put("tDBOutput_1_ERROR_MESSAGE", e.getMessage());
+						rejectedInnerJoin_tMap_1 = false;
 
-									int countSum_tDBOutput_1 = 0;
-									for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
-										counter += (countEach_tDBOutput_1 < 0 ? 0 : countEach_tDBOutput_1);
-									}
+						tos_count_tMap_1++;
 
-									System.err.println(e.getMessage());
+						/**
+						 * [tMap_1 main ] stop
+						 */
 
-								}
-								return counter;
+						/**
+						 * [tMap_1 process_data_begin ] start
+						 */
+
+						currentComponent = "tMap_1";
+
+						/**
+						 * [tMap_1 process_data_begin ] stop
+						 */
+// Start of branch "out"
+						if (out != null) {
+
+							/**
+							 * [tDBOutput_1 main ] start
+							 */
+
+							currentComponent = "tDBOutput_1";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1
+
+										, "out"
+
+								);
 							}
 
-							public int limitBytePart2(int counter, java.sql.PreparedStatement pstmt_tDBOutput_1)
-									throws Exception {
-								try {
-
-									for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
-										if (countEach_tDBOutput_1 == -2 || countEach_tDBOutput_1 == -3) {
-											break;
-										}
-										counter += countEach_tDBOutput_1;
-									}
-
-								} catch (java.sql.BatchUpdateException e) {
-									globalMap.put("tDBOutput_1_ERROR_MESSAGE", e.getMessage());
-
-									for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
-										counter += (countEach_tDBOutput_1 < 0 ? 0 : countEach_tDBOutput_1);
-									}
-
-									System.err.println(e.getMessage());
-
-								}
-								return counter;
+							whetherReject_tDBOutput_1 = false;
+							if (out.guest_id == null) {
+								pstmt_tDBOutput_1.setNull(1, java.sql.Types.INTEGER);
+							} else {
+								pstmt_tDBOutput_1.setInt(1, out.guest_id);
 							}
-						}
-						if ((batchSize_tDBOutput_1 > 0) && (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1)) {
 
-							insertedCount_tDBOutput_1 = new LimitBytesHelper_tDBOutput_1()
-									.limitBytePart1(insertedCount_tDBOutput_1, pstmt_tDBOutput_1);
-							rowsToCommitCount_tDBOutput_1 = insertedCount_tDBOutput_1;
+							if (out.guest_name == null) {
+								pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
+							} else {
+								pstmt_tDBOutput_1.setString(2, out.guest_name);
+							}
 
-							batchSizeCounter_tDBOutput_1 = 0;
-						}
+							if (out.country == null) {
+								pstmt_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
+							} else {
+								pstmt_tDBOutput_1.setString(3, out.country);
+							}
 
-						//////////// commit every////////////
+							if (out.loyalty_level == null) {
+								pstmt_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
+							} else {
+								pstmt_tDBOutput_1.setString(4, out.loyalty_level);
+							}
 
-						commitCounter_tDBOutput_1++;
-						if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
-							if ((batchSize_tDBOutput_1 > 0) && (batchSizeCounter_tDBOutput_1 > 0)) {
+							pstmt_tDBOutput_1.addBatch();
+							nb_line_tDBOutput_1++;
+
+							batchSizeCounter_tDBOutput_1++;
+
+							////////// batch execute by batch size///////
+							class LimitBytesHelper_tDBOutput_1 {
+								public int limitBytePart1(int counter, java.sql.PreparedStatement pstmt_tDBOutput_1)
+										throws Exception {
+									try {
+
+										for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+											if (countEach_tDBOutput_1 == -2 || countEach_tDBOutput_1 == -3) {
+												break;
+											}
+											counter += countEach_tDBOutput_1;
+										}
+
+									} catch (java.sql.BatchUpdateException e) {
+										globalMap.put("tDBOutput_1_ERROR_MESSAGE", e.getMessage());
+
+										int countSum_tDBOutput_1 = 0;
+										for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+											counter += (countEach_tDBOutput_1 < 0 ? 0 : countEach_tDBOutput_1);
+										}
+
+										System.err.println(e.getMessage());
+
+									}
+									return counter;
+								}
+
+								public int limitBytePart2(int counter, java.sql.PreparedStatement pstmt_tDBOutput_1)
+										throws Exception {
+									try {
+
+										for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+											if (countEach_tDBOutput_1 == -2 || countEach_tDBOutput_1 == -3) {
+												break;
+											}
+											counter += countEach_tDBOutput_1;
+										}
+
+									} catch (java.sql.BatchUpdateException e) {
+										globalMap.put("tDBOutput_1_ERROR_MESSAGE", e.getMessage());
+
+										for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+											counter += (countEach_tDBOutput_1 < 0 ? 0 : countEach_tDBOutput_1);
+										}
+
+										System.err.println(e.getMessage());
+
+									}
+									return counter;
+								}
+							}
+							if ((batchSize_tDBOutput_1 > 0)
+									&& (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1)) {
 
 								insertedCount_tDBOutput_1 = new LimitBytesHelper_tDBOutput_1()
 										.limitBytePart1(insertedCount_tDBOutput_1, pstmt_tDBOutput_1);
+								rowsToCommitCount_tDBOutput_1 = insertedCount_tDBOutput_1;
 
 								batchSizeCounter_tDBOutput_1 = 0;
 							}
-							if (rowsToCommitCount_tDBOutput_1 != 0) {
 
+							//////////// commit every////////////
+
+							commitCounter_tDBOutput_1++;
+							if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+								if ((batchSize_tDBOutput_1 > 0) && (batchSizeCounter_tDBOutput_1 > 0)) {
+
+									insertedCount_tDBOutput_1 = new LimitBytesHelper_tDBOutput_1()
+											.limitBytePart1(insertedCount_tDBOutput_1, pstmt_tDBOutput_1);
+
+									batchSizeCounter_tDBOutput_1 = 0;
+								}
+								if (rowsToCommitCount_tDBOutput_1 != 0) {
+
+								}
+								conn_tDBOutput_1.commit();
+								if (rowsToCommitCount_tDBOutput_1 != 0) {
+
+									rowsToCommitCount_tDBOutput_1 = 0;
+								}
+								commitCounter_tDBOutput_1 = 0;
 							}
-							conn_tDBOutput_1.commit();
-							if (rowsToCommitCount_tDBOutput_1 != 0) {
 
-								rowsToCommitCount_tDBOutput_1 = 0;
-							}
-							commitCounter_tDBOutput_1 = 0;
-						}
+							tos_count_tDBOutput_1++;
 
-						tos_count_tDBOutput_1++;
+							/**
+							 * [tDBOutput_1 main ] stop
+							 */
+
+							/**
+							 * [tDBOutput_1 process_data_begin ] start
+							 */
+
+							currentComponent = "tDBOutput_1";
+
+							/**
+							 * [tDBOutput_1 process_data_begin ] stop
+							 */
+
+							/**
+							 * [tDBOutput_1 process_data_end ] start
+							 */
+
+							currentComponent = "tDBOutput_1";
+
+							/**
+							 * [tDBOutput_1 process_data_end ] stop
+							 */
+
+						} // End of branch "out"
 
 						/**
-						 * [tDBOutput_1 main ] stop
+						 * [tMap_1 process_data_end ] start
 						 */
 
-						/**
-						 * [tDBOutput_1 process_data_begin ] start
-						 */
-
-						currentComponent = "tDBOutput_1";
+						currentComponent = "tMap_1";
 
 						/**
-						 * [tDBOutput_1 process_data_begin ] stop
-						 */
-
-						/**
-						 * [tDBOutput_1 process_data_end ] start
-						 */
-
-						currentComponent = "tDBOutput_1";
-
-						/**
-						 * [tDBOutput_1 process_data_end ] stop
+						 * [tMap_1 process_data_end ] stop
 						 */
 
 						/**
@@ -1172,6 +1571,27 @@ public class Dim_Guest implements TalendJob {
 
 				/**
 				 * [tDBInput_1 end ] stop
+				 */
+
+				/**
+				 * [tMap_1 end ] start
+				 */
+
+				currentComponent = "tMap_1";
+
+// ###############################
+// # Lookup hashes releasing
+// ###############################      
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
+				}
+
+				ok_Hash.put("tMap_1", true);
+				end_Hash.put("tMap_1", System.currentTimeMillis());
+
+				/**
+				 * [tMap_1 end ] stop
 				 */
 
 				/**
@@ -1241,7 +1661,7 @@ public class Dim_Guest implements TalendJob {
 				globalMap.put("tDBOutput_1_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_1);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "out");
 				}
 
 				ok_Hash.put("tDBOutput_1", true);
@@ -1275,6 +1695,16 @@ public class Dim_Guest implements TalendJob {
 
 				/**
 				 * [tDBInput_1 finally ] stop
+				 */
+
+				/**
+				 * [tMap_1 finally ] start
+				 */
+
+				currentComponent = "tMap_1";
+
+				/**
+				 * [tMap_1 finally ] stop
 				 */
 
 				/**
@@ -1742,6 +2172,6 @@ public class Dim_Guest implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 56556 characters generated by Talend Open Studio for Data Integration on the
- * October 21, 2026 at 3:41:10 AM EEST
+ * 67071 characters generated by Talend Open Studio for Data Integration on the
+ * October 22, 2026 at 2:31:06 AM EEST
  ************************************************************************************************/
