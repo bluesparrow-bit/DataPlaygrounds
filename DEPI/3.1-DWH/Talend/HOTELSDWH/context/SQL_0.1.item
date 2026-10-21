@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_l5FcsMzhEfGmVrphoW3ZJw" confirmationNeeded="false" name="Default">
+  <contextParameter xmi:id="_k3IowMznEfGsOcY4zUASlA" comment="" name="__HOST__" prompt="__HOST__?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;localhost&quot;"/>
+  <contextParameter xmi:id="_19AkkMznEfGsOcY4zUASlA" comment="" name="__PORT__" prompt="__PORT__?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;1433&quot;"/>
+  <contextParameter xmi:id="_19AkkcznEfGsOcY4zUASlA" comment="" name="__DB_SCHEMA__" prompt="__DB_SCHEMA__?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;dbo&quot;"/>
+  <contextParameter xmi:id="_19AkksznEfGsOcY4zUASlA" comment="" name="__USER__" prompt="__USER__?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;auto_admin&quot;"/>
+  <contextParameter xmi:id="_19Akk8znEfGsOcY4zUASlA" comment="" name="__PASS__" prompt="__PASS__?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;bluesparrow-bit&quot;"/>
+  <contextParameter xmi:id="_19AklMznEfGsOcY4zUASlA" comment="" name="__DRIVER__" prompt="__DRIVER__?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;encrypt=true;trustServerCertificate=true&quot;"/>
+</talendfile:ContextType>

@@ -1,0 +1,26 @@
+{
+  "itemId" : "_PKXCAMzhEfGmVrphoW3ZJw",
+  "contextList" : [ {
+    "contextName" : "Default",
+    "repoId" : "_l41lEMzhEfGmVrphoW3ZJw",
+    "parameterList" : [ {
+      "id" : "_19AkkcznEfGsOcY4zUASlA",
+      "name" : "__DB_SCHEMA__"
+    }, {
+      "id" : "_19AklMznEfGsOcY4zUASlA",
+      "name" : "__DRIVER__"
+    }, {
+      "id" : "_k3IowMznEfGsOcY4zUASlA",
+      "name" : "__HOST__"
+    }, {
+      "id" : "_19Akk8znEfGsOcY4zUASlA",
+      "name" : "__PASS__"
+    }, {
+      "id" : "_19AkkMznEfGsOcY4zUASlA",
+      "name" : "__PORT__"
+    }, {
+      "id" : "_19AkksznEfGsOcY4zUASlA",
+      "name" : "__USER__"
+    } ]
+  } ]
+}
