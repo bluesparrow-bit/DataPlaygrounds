@@ -1,0 +1,19 @@
+1-Supports Write Once, Read Many (WORM) operations with cost efficiency.
+		Allowed ✅								Not allowed ❌
+	Create a new file					Change line 500 of an existing file
+	Read it many times					Insert data in the middle
+	Append to the end (Hadoop 2+)				Random updates
+	Delete the whole file	
+	
+2- Very high fault tolerance
+Mechanism =>> What it does
+Replication =>> Every block is stored 3 times on different nodes
+Heartbeats =>> Each DataNode tells the NameNode "I'm alive" every 3 seconds
+Dead node detection =>> No heartbeat for about 10 minutes means the node is marked dead
+Re-replication =>> The NameNode makes new copies of the lost blocks on healthy nodes, so there are 3 copies again
+Checksums =>> Detect corrupted blocks. A bad copy is replaced from a good one.
+NameNode High Availability =>> A Standby NameNode takes over if the active one fails (coordinated by ZooKeeper)
+
+3-Rack awareness
+What's a rack? A cabinet holding about 20–40 servers that share one network switch and often one power supply. If the switch or power fails, the whole rack goes down.
+Rack awareness =>> means the NameNode knows which rack each DataNode is in and uses that when placing copies.
