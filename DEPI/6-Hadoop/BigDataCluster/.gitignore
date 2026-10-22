@@ -1,3 +1,12 @@
-volumes/
+# NameNode / JournalNode runtime data (keep the .gitkeep files)
+volumes/*/namenode/*
+!volumes/*/namenode/.gitkeep
+volumes/jn1/*
+!volumes/jn1/.gitkeep
+
+# Jupyter trash and Maven build output
+volumes/notebooks/.Trash-*/
+volumes/data/MR/**/target/
+
 logs/
 *.log
