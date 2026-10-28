@@ -20,7 +20,7 @@ This repository is my personal workspace: course labs, practice projects, experi
 ## 🗂️ Repository Structure
 
 ```text
-.
+├── 0-Cheatsheets/              # Quick reference guides for SQL, Python, and more    
 ├── Baraa_SQL/                  # SQL course applications & content
 ├── Data_Wrangling/             # Python data-cleaning experiments
 │   ├── data/
@@ -38,8 +38,8 @@ This repository is my personal workspace: course labs, practice projects, experi
 │   ├── HW/
 │   └── Lec-NoteBooks/
 ├── HVIA/                       # Internship tasks
-│   ├── Task 1/
-│   └── Task 2/
+│   ├── Task-0/
+│   └── Task-1/
 ├── .gitignore
 ├── LICENSE
 ├── README.md
@@ -49,6 +49,9 @@ This repository is my personal workspace: course labs, practice projects, experi
 ---
 
 ## 📁 Folder Details
+
+### [0-Cheatsheets](0-Cheatsheets)
+Quick reference guides for SQL, Python, and more.
 
 ### [Baraa_SQL](Baraa_SQL)
 Hands-on applications and notes from Baraa's SQL courses, along with the course content.
@@ -79,8 +82,8 @@ Homework and lecture notebooks from [GCI World](https://weblab.t.u-tokyo.ac.jp/e
 
 ### [HVIA](HVIA): Internship at [HVIA Data & AI Solutions](https://www.linkedin.com/company/hvia/posts/)
 HVIA is a data and AI solutions start-up. I interned there as a **data analyst**, working on real-world analysis tasks. This folder contains the tasks, datasets, and my solutions from that period.
-- [Task 1](HVIA/Task%201)
-- [Task 2](HVIA/Task%202)
+- [Task-1](HVIA/Task-1)
+- [Task-2](HVIA/Task-2)
 
 ---
 
