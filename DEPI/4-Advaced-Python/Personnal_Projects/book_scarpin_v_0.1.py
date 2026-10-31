@@ -8,8 +8,9 @@ from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 from IPython.display import Image
 
+print("Starting a Browser...")
 
-driver = webdriver.Firefox()
+driver = webdriver.Chrome()
 
 wait = WebDriverWait(driver, 10)
 
@@ -59,13 +60,15 @@ driver.get("https://books.toscrape.com/")
 
 for page in range(1, 6):
     all_books.extend(scrape_page(driver))
-    print(f"Page {page} scraped, total so far: {len(all_books)}")
+    print(f"-> Page {page} scraped, total so far: {len(all_books)}")
 
     if page < 5:
         driver.find_element(By.CSS_SELECTOR, "li.next a").click()
         time.sleep(1)  # wait 1 second between pages
 
 driver.quit()
+
+print("Scraping Complete!")
 
 # Clean
 df = pd.DataFrame(all_books)
@@ -86,5 +89,5 @@ df["price_level"] = pd.cut(
 df.head()
 
 # Save
-df.to_csv("C:\\Users\\Moham\\Documents\\VS\\PythonWorkSpace\\DEPI\\4-Advaced-Python\\Laps-and-Tasks\\data\\books.csv", index=False, encoding="utf-8")
+df.to_csv("data/books.csv", index=False, encoding="utf-8")
 print("Saved", len(df), "rows to books.csv")
