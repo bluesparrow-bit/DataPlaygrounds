@@ -86,5 +86,5 @@ df["price_level"] = pd.cut(
 df.head()
 
 # Save
-df.to_csv("C:\\Users\\Moham\\Documents\\VS\\PythonWorkSpace\\DEPI\\4-Advaced-Python\\data\\books.csv", index=False, encoding="utf-8")
+df.to_csv("C:\\Users\\Moham\\Documents\\VS\\PythonWorkSpace\\DEPI\\4-Advaced-Python\\Laps-and-Tasks\\data\\books.csv", index=False, encoding="utf-8")
 print("Saved", len(df), "rows to books.csv")
