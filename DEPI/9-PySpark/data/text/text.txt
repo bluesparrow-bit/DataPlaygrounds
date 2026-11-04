@@ -1,0 +1,4 @@
+cat dog cat
+snake cat dog
+snake dog owl
+owl snake cat
