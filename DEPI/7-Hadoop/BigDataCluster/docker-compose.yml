@@ -72,6 +72,7 @@ services:
       - "18088:8088"
     volumes:
       - ./volumes/master1/namenode:/opt/hadoop/dfs/name
+      - ./scripts/active_nn.sh:/scripts/active_nn.sh:ro
     networks:
       - bd_ss_nw
     command: 
@@ -84,10 +85,11 @@ services:
       journalnode3:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "test -f /opt/hadoop/dfs/.formatted"]
+      test: ["CMD-SHELL", "test -f /opt/hadoop/dfs/name/current/VERSION && nc -z master1 8020"]
       interval: 5s
-      timeout: 2s
+      timeout: 3s
       retries: 60
+      start_period: 30s
         
   master2:
     image: ysfetman/bdss-hadoop-base:3.4.2
@@ -98,6 +100,7 @@ services:
       - "28088:8088"
     volumes:
       - ./volumes/master2/namenode:/opt/hadoop/dfs/name
+      - ./scripts/standby_nn.sh:/scripts/standby_nn.sh:ro
     networks:
       - bd_ss_nw
     command: 
@@ -108,10 +111,11 @@ services:
       master1:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "test -f /opt/hadoop/dfs/.bootstrapped"]
+      test: ["CMD-SHELL", "test -f /opt/hadoop/dfs/name/current/VERSION && nc -z master2 8020"]
       interval: 5s
-      timeout: 2s
+      timeout: 3s
       retries: 60
+      start_period: 30s
         
   worker1:
     image: ysfetman/bdss-hadoop-spark:4.1.1
@@ -221,6 +225,8 @@ services:
     hostname: hive
     ports:
       - "10002:10002"
+    volumes:
+      - ./scripts/hive.sh:/scripts/hive.sh:ro
     networks:
       - bd_ss_nw
     command: 

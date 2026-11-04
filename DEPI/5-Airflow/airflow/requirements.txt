@@ -1,0 +1,4 @@
+# Extra Python packages baked into the Airflow image at build time.
+# Edit this file, then rebuild with:  docker compose build
+# Keep every entry pinned for reproducible builds.
+apache-airflow-providers-microsoft-mssql==4.7.2
