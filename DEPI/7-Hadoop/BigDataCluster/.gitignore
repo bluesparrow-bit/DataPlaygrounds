@@ -1,8 +1,15 @@
-# NameNode / JournalNode runtime data (keep the .gitkeep files)
+# NameNode / JournalNode / DataNode runtime data (keep the .gitkeep files)
 volumes/*/namenode/*
 !volumes/*/namenode/.gitkeep
 volumes/jn1/*
 !volumes/jn1/.gitkeep
+# Created at runtime by the fix-perms service
+volumes/jn2/
+volumes/jn3/
+volumes/dn1/
+volumes/dn2/
+volumes/dn3/
+volumes/dn4/
 
 # Jupyter trash and Maven build output
 volumes/notebooks/.Trash-*/

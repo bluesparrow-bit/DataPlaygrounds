@@ -80,15 +80,14 @@ Below is a list of all available UIs that you can use to test that everything is
 
 ## Starting the cluster
 
-Always start it with:
-
 ```bash
-./scripts/prepare.sh
+docker compose up -d    # start
+docker compose down     # stop
 ```
 
-That script fixes bind-mount ownership (the containers run as uid 1002, so freshly
-cloned folders owned by your desktop user are not writable), then runs
-`docker compose up -d`. It is safe to run repeatedly.
+No helper scripts are needed. A one-shot `fix-perms` service runs before the
+NameNode/JournalNode containers and repairs bind-mount ownership automatically
+(the images run as uid 1002, which needs group 1001 access to host folders).
 
 The NameNode init scripts are mounted from `./scripts/`, not baked into the image.
 They format/bootstrap only when `volumes/*/namenode/current/VERSION` is missing, so

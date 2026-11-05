@@ -5,6 +5,8 @@ services:
     hostname: zookeeper
     ports:
       - "2181:2181"
+    volumes:
+      - zk-data:/data
     networks:
       - bd_ss_nw
     healthcheck:
@@ -15,6 +17,20 @@ services:
     env_file:
       - ./env_files/zk.env
     
+  # One-shot root job: make the host bind mounts usable by the containers.
+  # Container images run as uid 1002 whose supplementary group is gid 1001
+  # ("hadoop"), so we only align the group here. Runs on every `up`, then exits.
+  fix-perms:
+    image: ysfetman/bdss-hadoop-base:3.4.2
+    container_name: fix-perms
+    user: "0:0"
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - "set -e; mkdir -p /v/jn2 /v/jn3 /v/dn1 /v/dn2 /v/dn3 /v/dn4; chown -R 1002:1001 /v/master1/namenode /v/master2/namenode /v/jn1 /v/jn2 /v/jn3 /v/dn1 /v/dn2 /v/dn3 /v/dn4; chmod -R u+rwX,g+rwX /v/master1/namenode /v/master2/namenode /v/jn1 /v/jn2 /v/jn3 /v/dn1 /v/dn2 /v/dn3 /v/dn4; find /v/master1/namenode /v/master2/namenode /v/jn1 /v/jn2 /v/jn3 /v/dn1 /v/dn2 /v/dn3 /v/dn4 -type d -exec chmod g+s {} +; chmod -R a+rwX /v/notebooks; chmod 2777 /v/notebooks"
+    volumes:
+      - ./volumes:/v
+    restart: "no"
+
   journalnode1:
     image: ysfetman/bdss-hadoop-base:3.4.2
     privileged: true
@@ -30,6 +46,9 @@ services:
       ["/scripts/jn.sh"]
     env_file:
       - ./env_files/hadoop.env
+    depends_on:
+      fix-perms:
+        condition: service_completed_successfully
       
   journalnode2:
     image: ysfetman/bdss-hadoop-base:3.4.2
@@ -38,6 +57,8 @@ services:
     hostname: journalnode2
     ports:
       - "28480:8480"
+    volumes:
+      - ./volumes/jn2:/opt/hadoop/dfs/journal
     networks:
       - bd_ss_nw
     command: 
@@ -51,6 +72,8 @@ services:
     hostname: journalnode3
     ports:
       - "38480:8480"
+    volumes:
+      - ./volumes/jn3:/opt/hadoop/dfs/journal
     networks:
       - bd_ss_nw
     command: 
@@ -80,6 +103,8 @@ services:
     env_file:
       - ./env_files/hadoop.env
     depends_on:
+      fix-perms:
+        condition: service_completed_successfully
       zk:
         condition: service_healthy
       journalnode3:
@@ -125,6 +150,7 @@ services:
       - "19864:9864"
     volumes:
       - ./volumes/data:/data
+      - ./volumes/dn1:/tmp/hadoop-user/dfs/data
     networks:
       - bd_ss_nw
     command: 
@@ -143,6 +169,7 @@ services:
       - "29864:9864"
     volumes:
       - ./volumes/data:/data
+      - ./volumes/dn2:/tmp/hadoop-user/dfs/data
     networks:
       - bd_ss_nw
     command: 
@@ -161,6 +188,7 @@ services:
       - "39864:9864"
     volumes:
       - ./volumes/data:/data
+      - ./volumes/dn3:/tmp/hadoop-user/dfs/data
     networks:
       - bd_ss_nw
     command: 
@@ -183,12 +211,13 @@ services:
     volumes:
       - ./volumes/notebooks:/home/user/notebooks
       - ./volumes/data:/data
+      - ./volumes/dn4:/tmp/hadoop-user/dfs/data
     networks:
       - bd_ss_nw
     # worker.sh runs Jupyter in the foreground on worker4 and never reaches
     # its final "exec hdfs datanode", so start the DataNode first
     command:
-      ["bash", "-c", "rm -f /tmp/hadoop-*-datanode.pid; hdfs --daemon start datanode; exec /scripts/worker.sh"]
+      ["bash", "-c", "umask 0000; rm -f /tmp/hadoop-*-datanode.pid; hdfs --daemon start datanode; exec /scripts/worker.sh"]
     env_file:
       - ./env_files/spark.env
     healthcheck:
@@ -206,6 +235,8 @@ services:
     hostname: metastore-db
     ports:
       - "6432:5432"
+    volumes:
+      - metastore-data:/var/lib/postgresql/data
     networks:
       - bd_ss_nw
     environment:
@@ -262,3 +293,7 @@ services:
       
 networks:
   bd_ss_nw:
+
+volumes:
+  zk-data:
+  metastore-data:
