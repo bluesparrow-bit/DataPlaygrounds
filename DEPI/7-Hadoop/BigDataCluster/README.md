@@ -93,3 +93,47 @@ The NameNode init scripts are mounted from `./scripts/`, not baked into the imag
 They format/bootstrap only when `volumes/*/namenode/current/VERSION` is missing, so
 a wiped data directory always triggers a clean re-init instead of a silent failure.
 
+## Loading the PySpark course data into HDFS
+
+The PySpark notebooks read their inputs from HDFS, not from the repo:
+
+| HDFS path | Used by |
+|-----------|---------|
+| `/user/user/data/spark_course` | `Spark_DataFrame.ipynb`, `Spark_SQL.ipynb` |
+| `/user/user/data/spark_course_output` | written by those notebooks (generated, git-ignored) |
+
+The upload source is [`DEPI/9-PySpark/spark_course`](../../9-PySpark/spark_course) (~76 MB, committed).
+HDFS lives in the bind-mounted `volumes/`, which is runtime state and is **not** versioned, so it has
+to be seeded once per machine. With the cluster up:
+
+```bash
+cd DEPI/7-Hadoop/BigDataCluster
+
+# 1. copy the staging folder into the active NameNode container
+docker compose cp ../../9-PySpark/spark_course master1:/tmp/spark_course
+
+# 2. put its contents under /user/user/data (idempotent: -f overwrites files)
+docker compose exec master1 bash -c '
+  hdfs dfs -mkdir -p /user/user/data/spark_course &&
+  hdfs dfs -put -f /tmp/spark_course/* /user/user/data/spark_course/'
+
+# 3. verify
+docker compose exec master1 hdfs dfs -ls /user/user/data/spark_course
+```
+
+Expected contents: `csv/`, `json/`, `parquet/`, `departuredelays.csv`, `sf-fire-calls.csv`,
+`people.json`, `people_bad.csv`, `NullData.csv`.
+
+The RDD notebook is different: it reads a small local copy from `DEPI/9-PySpark/data/`, which **is**
+committed, so it runs with plain `pyspark` and no cluster at all.
+
+### Windows (Docker Desktop) note
+
+These labs depend on Linux bind-mount ownership: `fix-perms` runs `chown`/`chmod`, the workers create
+`/tmp/hadoop-user` with a specific uid/gid, and the images run as uid 1002. NTFS bind mounts from
+Docker Desktop do not honour POSIX ownership, so a Windows-path clone can come up with an UNHEALTHY
+NodeManager or NameNode permission errors.
+
+If you work from Windows, clone and run the stack from inside WSL2 (e.g. `\\wsl$\<distro>\home\<you>\...`)
+and keep a normal Windows checkout only for editing. The `.gitattributes` file keeps both checkouts
+byte-identical, so switching machines never produces line-ending diffs.

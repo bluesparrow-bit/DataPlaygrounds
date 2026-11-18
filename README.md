@@ -49,6 +49,7 @@ This repository is my personal workspace: course labs, practice projects, experi
 ├── HVIA/                       # Internship tasks
 │   ├── Task-0/
 │   └── Task-1/
+├── .gitattributes
 ├── .gitignore
 ├── LICENSE
 ├── README.md
@@ -91,7 +92,7 @@ Assignments and labs from the DEPI Data Engineering track, organized in the orde
 | 6 | [6-DWH](DEPI/6-DWH) | Data warehousing with SQL Server & Talend ETL |
 | 7 | [7-Hadoop](DEPI/7-Hadoop) | Apache Hadoop fundamentals & HDFS commands |
 | 8 | [8-Hive](DEPI/8-Hive) | Apache Hive querying labs |
-| 9 | [9-PySpark](DEPI/9-PySpark) | PySpark RDD examples & data processing |
+| 9 | [9-PySpark](DEPI/9-PySpark) | PySpark RDD, DataFrame & SQL notebooks |
 
 ### [GCI_World](GCI_World)
 Homework and lecture notebooks from [GCI World](https://weblab.t.u-tokyo.ac.jp/en/lecture/gci/), a free, 3-month online AI and data science training program organized by the Matsuo-Iwasawa Laboratory at the University of Tokyo, with support from JICA.
@@ -168,6 +169,22 @@ pip install -r requirements.txt
 # 4. Launch Jupyter to explore the notebooks
 jupyter notebook
 ```
+
+### Running the notebooks
+
+Most notebooks run locally. The PySpark ones split into two groups:
+
+| Notebook | Needs | Data source |
+|----------|-------|-------------|
+| [9-PySpark/RDD_Examples.ipynb](DEPI/9-PySpark/RDD_Examples.ipynb) | Python + `pyspark` only | local `DEPI/9-PySpark/data/` (committed) |
+| [9-PySpark/Notebooks/Spark_DataFrame.ipynb](DEPI/9-PySpark/Notebooks/Spark_DataFrame.ipynb) | the Hadoop cluster (Docker) | HDFS `/user/user/data/spark_course` |
+| [9-PySpark/Notebooks/Spark_SQL.ipynb](DEPI/9-PySpark/Notebooks/Spark_SQL.ipynb) | the Hadoop cluster (Docker) | HDFS `/user/user/data/spark_course` |
+
+Bring the cluster up and seed HDFS once per machine — the steps are in
+[DEPI/7-Hadoop/BigDataCluster/README.md](DEPI/7-Hadoop/BigDataCluster/README.md#loading-the-pyspark-course-data-into-hdfs).
+
+Secrets never live in git. Copy the example file and fill it in next to whichever compose stack you use:
+`DEPI/2-SQL-Laps/pg_mssql/.env.example` → `.env`, `DEPI/5-Airflow/airflow/.env.example` → `.env`.
 
 ---
 
