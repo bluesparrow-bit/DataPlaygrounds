@@ -3,3 +3,14 @@
 DEPI/2-SQL-Laps/DEPI-SQL-Laps.sqlproj
 data/
 MyAnimeList-Database-master/
+
+# --- cross-platform junk (Windows PC + Fedora laptop) ---
+Thumbs.db
+desktop.ini
+.DS_Store
+*:Zone.Identifier
+*.stackdump
+
+# --- generated notebooks / spark output ---
+**/.ipynb_checkpoints/
+DEPI/9-PySpark/spark_course_output/

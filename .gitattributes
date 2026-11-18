@@ -1,0 +1,45 @@
+# Cross-platform line-ending policy.
+# The goal is byte-identical checkouts on Linux and Windows, so that datasets
+# and notebooks never show up as "modified" just because of CRLF.
+#
+# Rule of thumb:
+#   - data / binaries  -> -text   (store the bytes exactly as committed)
+#   - code / docs      -> eol=lf  (one canonical form, on every machine)
+
+# ---------------------------------------------------------------- data
+# Sample datasets and HDFS upload staging areas. These must never be
+# renormalized: a CRLF conversion here rewrites tens of thousands of lines.
+DEPI/7-Hadoop/BigDataCluster/volumes/data/**  -text
+DEPI/9-PySpark/spark_course/**                -text
+
+# ------------------------------------------------------------- binaries
+*.jar      binary
+*.parquet  binary
+*.gz       binary
+*.zip      binary
+*.bak      binary
+*.pdf      binary
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.xlsx     binary
+*.docx     binary
+*.pptx     binary
+
+# --------------------------------------------------------- source / docs
+*.sh         text eol=lf
+*.py         text eol=lf
+*.ipynb      text eol=lf
+*.md         text eol=lf
+*.yml        text eol=lf
+*.yaml       text eol=lf
+*.json       text eol=lf
+*.sql        text eol=lf
+*.java       text eol=lf
+*.xml        text eol=lf
+*.properties text eol=lf
+
+# ---- the policy files themselves ----
+.gitattributes text eol=lf
+.gitignore     text eol=lf
+/requirements.txt text eol=lf
