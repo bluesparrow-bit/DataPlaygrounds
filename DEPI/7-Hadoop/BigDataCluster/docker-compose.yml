@@ -153,8 +153,11 @@ services:
       - ./volumes/dn1:/tmp/hadoop-user/dfs/data
     networks:
       - bd_ss_nw
-    command: 
-      ["/scripts/worker.sh"]
+    # Docker creates /tmp/hadoop-user (the bind-mount parent) as root:root, so
+    # the NodeManager (uid 1002) cannot create its default nm-local-dir and
+    # reports the node UNHEALTHY. Hand the dir to the container user first.
+    command:
+      ["bash", "-c", "sudo install -d -o 1002 -g 1001 -m 2775 /tmp/hadoop-user && exec /scripts/worker.sh"]
     env_file:
       - ./env_files/spark.env
     depends_on:
@@ -172,8 +175,8 @@ services:
       - ./volumes/dn2:/tmp/hadoop-user/dfs/data
     networks:
       - bd_ss_nw
-    command: 
-      ["/scripts/worker.sh"]
+    command:
+      ["bash", "-c", "sudo install -d -o 1002 -g 1001 -m 2775 /tmp/hadoop-user && exec /scripts/worker.sh"]
     env_file:
       - ./env_files/spark.env
     depends_on:
@@ -191,8 +194,8 @@ services:
       - ./volumes/dn3:/tmp/hadoop-user/dfs/data
     networks:
       - bd_ss_nw
-    command: 
-      ["/scripts/worker.sh"]
+    command:
+      ["bash", "-c", "sudo install -d -o 1002 -g 1001 -m 2775 /tmp/hadoop-user && exec /scripts/worker.sh"]
     env_file:
       - ./env_files/spark.env
     depends_on:
@@ -217,7 +220,7 @@ services:
     # worker.sh runs Jupyter in the foreground on worker4 and never reaches
     # its final "exec hdfs datanode", so start the DataNode first
     command:
-      ["bash", "-c", "umask 0000; rm -f /tmp/hadoop-*-datanode.pid; hdfs --daemon start datanode; exec /scripts/worker.sh"]
+      ["bash", "-c", "sudo install -d -o 1002 -g 1001 -m 2775 /tmp/hadoop-user; umask 0000; rm -f /tmp/hadoop-*-datanode.pid; hdfs --daemon start datanode; exec /scripts/worker.sh"]
     env_file:
       - ./env_files/spark.env
     healthcheck:
